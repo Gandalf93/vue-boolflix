@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @ricerca="ricercaFilm" />
-    <Main :movies='arrayMovies' />
+    <Main :movies='arrayMovies' :searched='searchText' />
   </div>
 </template>
 
@@ -23,11 +23,13 @@ export default {
     apiKey : '397f04fd0d7d343757c0210631a38e24',
     language:'it-IT',
     arrayMovies: [],
+    searchText:'',
     }
   },
 
   methods: {
     ricercaFilm(text){
+      this.searchText= text;
       axios
           .get(this.apiUrl,{
             params:{

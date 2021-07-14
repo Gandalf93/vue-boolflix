@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="cards">
+      <h2>Stai cercando: {{searched}}</h2>
       <Card v-for='movie in movies' :key='movie.id' :info='movie' />
     </div>
   </div>
@@ -17,6 +18,7 @@ export default {
  },
  props:{
    movies: Array,
+   searched: String,
  }
 }
 </script>
